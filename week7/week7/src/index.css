@@ -1,0 +1,225 @@
+:root {
+  --text: #d9d9ec;
+  --text-h: #ffffff;
+  --bg: #0d1224;
+  --surface: #12172c;
+  --surface-alt: #172043;
+  --surface-soft: #0d1224;
+  --border: rgba(255, 255, 255, 0.08);
+  --code-bg: #161b30;
+  --accent: #8c62ff;
+  --accent-bg: rgba(140, 98, 255, 0.16);
+  --accent-border: rgba(140, 98, 255, 0.42);
+  --social-bg: rgba(145, 87, 255, 0.12);
+  --shadow: rgba(0, 0, 0, 0.4) 0 22px 45px -15px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --bg: #16171d;
+    --border: #2e303a;
+    --code-bg: #1f2028;
+    --accent: #c084fc;
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(47, 48, 58, 0.5);
+    --shadow:
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  }
+
+  #social .button-icon {
+    filter: invert(1) brightness(2);
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, rgba(140, 98, 255, 0.14), transparent 28%),
+    linear-gradient(180deg, #0a0f1f 0%, #0d1227 100%);
+}
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 32px 16px;
+}
+
+.app-shell {
+  width: min(100%, 820px);
+  margin: 0 auto;
+  padding: 32px 26px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: rgba(18, 23, 44, 0.98);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.app-shell h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  letter-spacing: -0.04em;
+}
+
+.app-shell > div {
+  text-align: left;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  background: rgba(14, 21, 42, 0.95);
+}
+
+.app-shell h3 {
+  margin: 0 0 16px;
+  font-size: 1.15rem;
+  color: var(--text-h);
+}
+
+input,
+button {
+  font: inherit;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  background: #12182f;
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder {
+  color: #8f97b3;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(140, 98, 255, 0.18);
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 14px;
+  color: #fff;
+  background: var(--accent);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  background: #704be5;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+li {
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #12182f;
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding: 24px 12px;
+  }
+
+  .app-shell {
+    padding: 24px 18px 26px;
+    gap: 20px;
+  }
+
+  .app-shell > div {
+    padding: 20px;
+  }
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}
